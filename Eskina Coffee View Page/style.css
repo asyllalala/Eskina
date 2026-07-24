@@ -1,0 +1,502 @@
+body {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Fixed Navbar */
+nav {
+    background-color: #3D2419;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 30px;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+}
+
+.logo img {
+    width: 50px;       /* logo size */
+    height: 50px;
+    border-radius: 50%; /* makes it a perfect circle */
+    margin-right: 20px; /* space between image and text */
+    object-fit: cover;  /* crop nicely if needed */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    margin: 0 5px;
+    margin-right: 55px;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+    padding-bottom: 5px;
+    transition: 0.3s;
+    position: relative;
+
+}
+
+/* Underline on hover */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    background-color: #C4B397;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {    
+    color: #C4B397;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a.active {
+    color: #C4B397;
+}
+
+.nav-links a.active::after {
+    width: 100%; 
+}
+
+/* Hamburger icon (hidden by default) */
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+    margin-right: 50px;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #3D2419;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        height: auto; /* adjust for mobile */
+        padding: 15px 20px;
+    }
+}
+
+/* Landing Page */
+.image-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden; /* hides overflow for crop effect */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    color: white;
+    text-align: left;
+    padding-bottom: 0px;
+    padding-left: 50px;
+    margin-bottom: 0px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;        /* fills container and crops */
+    object-position: bottom;  /* keep bottom part visible */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;              /* push image behind text */
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.image-container h1 { 
+    font-size: 45px;
+    max-width: 600px; 
+    font-family: 'Noto Serif', serif; 
+    font-weight: 700; 
+    padding-bottom: 30px;
+}
+
+
+/* Our Story Section */
+.story-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0; /* remove gap above */
+    height: auto; /* avoid forcing full screen height */
+}
+
+.story-image {
+    display: block; /* removes image bottom gap */
+    width: 100%;
+    height: 50%;
+  
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-text {
+    flex: 1; /* lower half */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    margin-top: 5px;
+    background: white;
+}
+
+.story-text h2 {
+    color: #3D2419;
+    margin-top: 5px;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.story-text p {
+    max-width: 800px;
+    margin: 0 auto; 
+    margin-top: 0px;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #333;
+    padding: 0 20px; 
+}
+
+@media (max-width: 768px) {
+    .story-text p {
+        font-size: 16px;   /* smaller text for mobile */
+        padding: 0 30px;   /* ✅ more padding to match button margin */
+    }
+}
+
+.btn1 {
+    background: white;
+    border: 2px solid #3D2419;
+    padding: 10px 20px;
+    margin-top: 40px;
+    color: #3D2419;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 10px;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+}
+
+.btn1:hover {
+    background: #3D2419;
+    color: white;
+}
+
+
+/* What We Have */
+.menu-categories {
+    text-align: center;
+    padding: 50px;
+}
+
+.menu-categories h2 {
+    margin-bottom: 40px;
+    color: #3D2419;
+    margin-top: 40px;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.menu-items {
+    display: flex;
+    flex-wrap: wrap;         /* allow wrapping */
+    justify-content: center; /* center items in each row */
+    gap: 50px;               /* spacing between items */
+    max-width: 900px;        /* optional: controls overall width */
+    margin: 0 auto; 
+}
+
+.menu-item {
+    display: flex;
+    flex-direction: column; /* stack image and button */
+    align-items: center;    /* center them horizontally */
+    text-align: center;
+    flex: 0 1 250px;
+}
+
+.menu-item img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.btn2 {
+    background: white;
+    border: 2px solid #3D2419;
+    padding: 10px 10px;
+    color: #3D2419;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 10px;
+    display: inline-block;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+}
+
+.btn2:hover {
+    background: #3D2419;
+    color: white;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;     /* vertically align text with image */
+    min-height: 100vh;       /* full screen height (optional) */
+}
+
+.contact-image {
+    flex: 1;
+}
+
+.contact-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.contact-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;  
+    align-items: flex-start;
+}
+
+.contact-text h2{
+    color: #3D2419;
+    margin-top: 5px;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.contact-text h3 {
+    color: #3D2419;
+    margin-top: 5px;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.contact-text p {
+    max-width: 800px;
+    margin-top: 0px;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #333;
+}
+
+.btn3 {
+    background: white;
+    border: 2px solid #3D2419;
+    padding: 10px 20px;
+    color: #3D2419;
+    text-decoration: none;
+    transition: 0.3s;
+    border-radius: 10px;
+    display: flex;
+    font-family: 'Noto Serif', serif;
+    font-weight: 700;   
+}
+
+.btn3:hover {
+    background: #3D2419;
+    color: white;
+}
+
+/* ✅ Make images & buttons responsive on small screens */
+@media (max-width: 768px) {
+    /* General images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Menu items layout */
+    .menu-items {
+        flex-direction: column; /* stack vertically */
+        gap: 30px;
+    }
+
+    .menu-item {
+        flex: 1 1 100%; /* full width on mobile */
+        align-items: center;
+    }
+
+    .menu-item img {
+        width: 90%;  /* shrink a bit for spacing */
+        height: auto;
+    }
+
+    /* ✅ Expand buttons */
+    .btn1, .btn2, .btn3 {
+        display: block;
+        width: 90%;      /* button takes almost full width */
+        max-width: 350px; /* optional: prevent huge buttons */
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    /* Story and Contact sections become stacked */
+    .story-container,
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-text,
+    .story-text {
+        align-items: center;  
+    }
+}
+
+
+/* Footer */
+footer {
+    background-color: #3D2419;
+    color: white;
+    padding: 30px 50px 10px;
+ }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .footer-left img {
+      width: 70px;       /* logo size */
+      height: 70px;
+      border-radius: 50%; /* makes it a perfect circle */
+      margin-right: 20px; /* space between image and text */
+      object-fit: cover; 
+    }
+
+    .footer-left h2 {
+        margin: 0;
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        font-family: 'Noto Serif', serif;
+        font-weight: 700;
+    }
+
+    .footer-right {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-right a {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;       /* stack vertically */
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-left {
+    flex-direction: column;       /* logo on top, text below */
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .footer-left img {
+    margin-right: 0;              /* remove extra margin */
+    margin-bottom: 10px;
+  }
+
+  .footer-right {
+    align-items: center;
+  }
+}
